@@ -1,0 +1,75 @@
+SRS DOCUMENT OF THE OPEN CART APPLICATION
+=========================================
+STEPS
+ TEST CASE 1:-ACCOUNT REGISTRATION:-
+ 
+ * 1.1 Create BasePage under "pageObjects" which includes only constructor
+ * this will be invoked by every page object class constructor(RE-usebility).
+ * 1.2 Create Page Object Classes for Homepage.registrationPage under pageObjects package.(THESE CLASSES EXTENDS FROM BASEPAGE)
+ * 1.3 CREATE ACCOUNTREGISTRATIONTEST UNDER "TESTCASES"
+ * 1.4 Create BaseClass under testBase package and copy re-usable methods.
+ * 1.5 Create re-usable method to generate random number and strings in BaseClass.
+ 
+ 
+ SRS2:-ADDING LOGS TO TEST CASE(LOG4J2)
+		 * =======================================
+		 * 2.1 Add log4j2.xml file under src/test/resourses.
+		 * 2.2 Update BaseClass.
+		 * 2.3 Add log Statement to AccountRegistrationTest.
+		 
+		 
+SRS:-3 RUN TESTS ON DESIRED BROWSER/CROSS/BROWSER/PARALLEL
+		 * ==========================================================
+		 * 3.1 create testng.xml file to run test cases and parameterize
+		 * browser name and os to BaseClass-->setup() method.
+		 * 3.2 Update BaseClass -->setup() method,launch browser based on conditions.
+		 * 3.3 Maintain separate xml to run multiple browsers parallel.. 
+	
+	
+SRS:-4 READ COMMON VALUES FROM CONFIG.PROPERTIES FILE
+		 * =====================================================
+		 * 4.1:-Add config.properties file under src/test/resources.
+		 * 4.2:-Update BaseClass--->setup() method,add script to load config.properties file.
+		 * 4.3:-Replace hard coded values in test Cases like Url,username,password etc.. 
+	
+SRS:-5   login TEST CASE
+===============================================================
+5.1)CREATE AND UPDATE PAGE OBJECT CLASSES .LoginPage.MyAccountPage - new classes HomePage update by adding login link element.
+5.2)Create LoginTest
+5.3)Add entry testing.xml
+
+
+SRS6:-DATA DRIVEN LOGIN TEST
+6.1:-PREPARE TEST DATA IN EXCEL,PLACE THE EXCEL FILE INSIDE THE SETDATA FOLDER.
+6.2:-CREATE EXCELUTILITY.CLASS UNDER UTITLITES PACKAGE
+6.3:-UPDATE PAGE OBJECT CLASS MYACCOUNTPAGE,ADD LOGOUT LINK ELEMENT.
+6.4:-CREATE DATAPROVIDERS CLASS IN UTILITIES PACKAGE TO MAINTAIN DATA PROVIDERS FOR DATA DRIVEN
+TESTS.
+6.5:-CREATE LOGINDATADRIVEN.TEST UNDER TESTCASES PACKAGE.
+6.6:-ADD AN ENTRY IN TESTING.XML FILE.
+
+SRS7:-
+7.1)ADD ALL TEST CASES INTO SPECIFIC GROUP {"SANITY","REGRESSION","MASTER"...ETC,).
+7.2)ALSO ADD BASECLASS METHODS SETUP() AND TEARDOWN() TO ALL GROPUS.
+7.3)CREATE SEPARATE TESTNG XML FILE(GROUPING.XML) TO RUN GROUPS AND INCLUDE GROPUS WHICH WE WANT TO EXECUTE.
+
+
+SRS8:-
+8.1)CREATE ExtentReportUtility utility class under utilities package.
+8.2)Add capture Screen() (LIstener class)entry in testng.xml file.
+8.3)Add ExtentReportUtility (Listener class) entry in testng.xml file.
+8.4)Make sure webDriver is static in BaseClass we refer same driver instance in ExtentReportUtility.
+
+SRS:-9
+TEST-OUTPUT--->TEST-FAILURE.XML
+
+
+
+
+
+
+
+
+
+
+	 	 
